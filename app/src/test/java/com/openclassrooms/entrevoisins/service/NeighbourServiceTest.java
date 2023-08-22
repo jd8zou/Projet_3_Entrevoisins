@@ -68,6 +68,12 @@ public class NeighbourServiceTest {
     public void getFavoriteNeighbourTest() {
         Neighbour neighbour = service.getNeighbours().get(3);
         neighbour.setFavorite(true);
-        assertTrue(service.getFavoriteNeighbours().contains(neighbour));
+        for(Neighbour i: service.getNeighbours()){
+            if(i.getFavorite()){
+                assertTrue(service.getFavoriteNeighbours().contains(i));
+            }else {
+                assertFalse(service.getFavoriteNeighbours().contains(i));
+            }
+        }
     }
 }
